@@ -20,9 +20,7 @@ html {
 
 body {
   margin: 0;
-  display: flex;
-  flex-direction: column;
-  min-height: 100%;
+  height: 100%;
   font-family: "PT Sans", sans-serif;
   color: #000000;
   background-color: #ffffff;
@@ -100,8 +98,13 @@ body {
 }
 
 .page-container {
-  width: 1200px;
+  display: flex;
+  flex-direction: column;
   margin: 0 auto;
+  width: 1200px;
+  min-height: 100%;
+  /* Применить актуальный box-shadow из макета */
+  box-shadow: 0 0 0 2px red;
 }
 
 .main-index {
@@ -148,9 +151,21 @@ body {
   text-transform: uppercase;
 }
 
+.advantages-item {
+  width: 400px;
+}
+
+/* Достаточно докинуть класс, который даст нам понять, что конкретно этот элемент списка, к примеру, "большой"
+  Внимание и на index.html::63,::99
+*/
+.advantages-item-big {
+  width: 100%;
+}
+
 .advantages-item-title {
-  color: #ffffff;
-  background-color: #000000;
+  /* Изменить цвет текста на тот, который в макете */
+  color: red;
+  /* Откуда взялся черный бекграундный фон?? Та же проблема и на внутренней странице */
   font-weight: 700;
   font-size: 24px;
   line-height: 28px;
@@ -160,8 +175,8 @@ body {
 }
 
 .advantages-item-description {
-  color: #ffffff;
-  background-color: #000000;
+  /* Изменить цвет текста на тот, который в макете */
+  color: red;
   font-weight: 400;
   font-size: 18px;
   line-height: 21px;
@@ -204,6 +219,12 @@ body {
   padding: 0;
   display: flex;
   flex-wrap: wrap;
+  /* Не забываем про обнуление дефолтных точек у списка */
+  list-style-type: none;
+}
+
+.advantage-list-title-item {
+  width: 400px;
 }
 
 .advantage-list-title-container {
@@ -224,7 +245,12 @@ body {
 
 .data-title {
   margin: 0;
-  padding: 96px 451.5px 20px 451.5px;
+  /* Не нужно центрировать текст с помощью padding. Для этого есть отдельное специальное свойство */
+  /*
+    Но мы можем просто "на глаз" закинуть небольшой отступ, чтобы при переполнении, текст не "прилипал"
+    к границам блока. К примеру, слева и вправа добавим 20px, всё. Этого достаточно)
+  */
+  padding: 96px 20px 20px 20px;
 }
 
 .data-text {
@@ -232,7 +258,7 @@ body {
   font-size: 22px;
   line-height: 26px;
   margin: 0;
-  padding: 0 304px 54px 304px;
+  padding: 0 20px 54px 20px;
 }
 
 .button-data {
